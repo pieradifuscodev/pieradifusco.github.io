@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body { 
+    background: #121212; 
+    color: white; 
+    padding: 40px; 
+    /* Portiamo il padding a 150px per sicurezza */
+    padding-bottom: 150px !important; 
+    font-family: 'Inter', sans-serif; 
+    overflow-y: auto; 
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    /* Assicuriamoci che non ci siano margini negativi o posizionamenti che rompono lo scroll */
+}
+        .header { border-bottom: 1px solid #282828; padding-bottom: 20px; margin-bottom: 30px; }
+        .tag { background: #1DB954; color: black; padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: bold; margin-right: 8px; }
+        
+        /* Layout Immagini */
+        .main-screenshot { width: 100%; border-radius: 8px; border: 1px solid #333; margin-bottom: 20px; }
+        .grid-screenshots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-screenshots img { width: 100%; border-radius: 8px; border: 1px solid #333; }
+        
+        .section { margin-top: 40px; line-height: 1.6; }
+        h2 { color: #1DB954; border-left: 4px solid #1DB954; padding-left: 15px; margin-bottom: 20px; }
+        .docker-box { background: #1a1a1a; border: 1px solid #0073aa; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        code { color: #00f3ff; font-family: 'Courier New', monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CYBERTRIS</h1>
+            <p style="color: #b3b3b3;">System Programming meets 3D Web Graphics</p>
+            <div style="margin-top: 15px;">
+                <span class="tag">C / POSIX Threads</span>
+                <span class="tag">Three.js</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Node.js Bridge</span>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2>Lobby System</h2>
+            <p>The entry point where users manage their identity and matches. It handles concurrent connection requests via a custom handshake protocol.</p>
+            <img src="assets/lobby.jpg" class="main-screenshot" alt="Cybertris Lobby UI">
+        </section>
+
+        <section class="section">
+            <h2>3D Gameplay & Real-time Sync</h2>
+            <p>The game board uses Three.js raycasting for interaction. Every move is validated by the C server to prevent illegal plays and ensure state consistency across clients.</p>
+            <div class="grid-screenshots">
+                <img src="assets/game1.jpg" alt="Board View 1">
+                <img src="assets/game2.jpg" alt="Board View 2">
+                <img src="assets/game3.jpg" alt="Board View 3">
+                <img src="assets/game4.jpg" alt="Board View 4">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Containerization with Docker</h2>
+            <div class="docker-box">
+                <p>To ensure a consistent environment across different systems, the entire infrastructure is containerized using <strong>Docker & Docker Compose</strong>.</p>
+                <ul>
+                    <li><code>server_c</code>: Isolate the C backend in a minimal Linux environment.</li>
+                    <li><code>node_bridge</code>: Manages the WebSocket-to-TCP proxy.</li>
+                </ul>
+                <p>This setup allows deploying the multi-language stack with a single command: <code>docker-compose up</code>, managing internal networks and port mapping seamlessly.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
