@@ -3,6 +3,7 @@
     --panel-bg: #121212;
     --hover-bg: #282828;
     --spotify-green: #1DB954;
+    --accent-color: #1DB954;
     --text-main: #ffffff;
     --text-sub: #b3b3b3;
 }
@@ -35,47 +36,221 @@ body, html {
     overflow: hidden;
 }
 
-/* Sidebar Sinistra */
-.nav-icons { padding: 20px; font-weight: bold; }
-.nav-item { margin-bottom: 15px; cursor: pointer; color: var(--text-sub); transition: 0.3s; }
-.nav-item:hover { color: white; }
-
-.library { padding: 10px; flex-grow: 1; }
+/* Sidebar Sinistra Progetti */
+.library { padding: 15px; flex-grow: 1; overflow-y: auto; }
+.lib-header { font-weight: bold; margin-bottom: 20px; color: var(--text-main); }
 .project-item {
     display: flex; align-items: center; gap: 12px;
     padding: 8px; border-radius: 6px; cursor: pointer; transition: 0.3s;
 }
 .project-item:hover { background-color: var(--hover-bg); }
-.project-item img { width: 48px; height: 48px; border-radius: 4px; }
-.proj-title { margin: 0; font-weight: 600; }
+.project-item img { width: 48px; height: 48px; border-radius: 4px; object-fit: cover; }
+.proj-title { margin: 0; font-weight: 600; font-size: 0.9rem; }
 .proj-type { margin: 0; font-size: 0.8rem; color: var(--text-sub); }
 
-/* Main Content (Frame Centrale) */
+/* Main Content Centrale */
 .main-view { background: linear-gradient(to bottom, #222, #121212); }
 .top-bar { padding: 20px; background: rgba(0,0,0,0.2); }
-.content-frame { flex-grow: 1; position: relative; }
-#portfolio-frame { width: 100%; height: 100%; display: none; }
+.content-frame {
+    flex-grow: 1;
+    position: relative;
+    height: 100%; /* Forza il contenitore a occupare tutto lo spazio */
+    overflow: hidden;
+}
+
+#portfolio-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; /* Evita spazi bianchi strani sotto l'iframe */
+}
 #placeholder-text {
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%); color: var(--text-sub);
 }
 
-/* Sidebar Destra (Profilo) */
-.sidebar-right { padding: 20px; }
-.right-profile-pic { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-.bio-box { background: #242424; padding: 15px; border-radius: 8px; margin-top: 20px; }
-.follow-btn {
-    background: white; border: none; padding: 8px 20px;
-    border-radius: 20px; font-weight: bold; margin-top: 10px; cursor: pointer;
+/* Sidebar Destra - Profilo Artist */
+.sidebar-right { padding: 0 !important; }
+.artist-photo-container { position: relative; width: 100%; height: 350px; }
+.artist-bg-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.artist-overlay-content {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    padding: 24px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    box-sizing: border-box;
+}
+.artist-overlay-content h3 { font-size: 2.2rem; margin: 8px 0; font-weight: 700; color: white; }
+.verified { font-size: 0.85rem; display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.check { background: #3d91ff; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+.bio-box {
+    padding: 16px 20px; /* Ridotto da 24px a 16px sopra/sotto */
+    box-sizing: border-box;
 }
 
+.bio-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+}
+
+.bio-content p {
+    font-size: 0.82rem; /* Leggermente più piccolo */
+    line-height: 1.4;   /* Interlinea più densa */
+    margin-bottom: 8px; /* Meno spazio tra i paragrafi */
+    color: var(--text-sub);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;          /* Bottoni più vicini tra loro */
+    margin-top: 12px;  /* Meno spazio sopra i bottoni */
+}
+
+.social-btn {
+    padding: 8px 12px; /* Bottoni leggermente più sottili */
+    font-size: 0.8rem;
+}
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 500px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 1px solid var(--text-sub);
+    color: white;
+}
+
+/* Effetto Hover */
+.social-btn:hover {
+    transform: scale(1.03);
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.linkedin:hover {
+    background-color: #0077b5 !important;
+    color: white !important;
+}
+
+.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    color: white !important;
+}
+
+/* Stile specifico per il CV per farlo risaltare */
+.cv-btn {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.cv-btn:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
 /* Player Bar */
 .player-bar {
     grid-column: 1 / 4;
+    background-color: #000;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 16px; height: 90px;
 }
-.now-playing { display: flex; align-items: center; gap: 15px; width: 30%; }
-.album-art { width: 56px; height: 56px; border-radius: 4px; }
-.player-controls { width: 40%; }
-.volume-controls { width: 30%; text-align: right; }
+
+/* Now Playing */
+.now-playing { width: 30%; display: flex; align-items: center; gap: 14px; }
+.album-art { width: 56px; height: 56px; border-radius: 4px; object-fit: cover; }
+.song-name { font-size: 14px; font-weight: 600; margin: 0; }
+.artist-name { font-size: 11px; color: var(--text-sub); margin-top: 4px; }
+
+/* Controlli Centrali e Barra Avanzamento */
+.player-controls { width: 40%; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.control-buttons { display: flex; align-items: center; gap: 24px; }
+.control-btn { background: none; border: none; color: var(--text-sub); font-size: 20px; cursor: pointer; }
+.play-btn { background: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 14px; }
+.progress-container { width: 100%; display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--text-sub); }
+.progress-bar { flex-grow: 1; height: 4px; background: #4d4d4d; border-radius: 2px; cursor: pointer; position: relative; }
+.progress-fill { width: 0%; height: 100%; background: #fff; border-radius: 2px; transition: width 0.1s linear; }
+.progress-bar:hover .progress-fill { background: var(--spotify-green); }
+
+/* Sezione MONO Slider (SX/DX) */
+.mono-player-controls { width: 30%; display: flex; align-items: center; justify-content: flex-end; gap: 15px; }
+.mono-status-text {
+    display: flex; flex-direction: column; text-align: right;
+    font-size: 10px; color: var(--accent-color); font-weight: 700;
+    line-height: 1.2; transition: color 0.3s ease;
+}
+.mono-slider-group { display: flex; align-items: center; gap: 8px; }
+.mono-label { font-size: 11px; font-weight: 800; color: var(--text-sub); min-width: 20px; text-align: center; }
+
+/* Custom Range Input (Spotify Style) */
+.spotify-slider {
+    -webkit-appearance: none;
+    width: 100px; height: 4px;
+    background: #4d4d4d; border-radius: 2px; outline: none;
+}
+.spotify-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px; height: 12px;
+    background: #fff; border-radius: 50%;
+    cursor: pointer; border: none; transition: 0.2s;
+}
+.spotify-slider:hover::-webkit-slider-thumb {
+    background: var(--spotify-green);
+    transform: scale(1.2);
+}
+
+/* Container dei Tools nella Sidebar */
+.tech-stack-sidebar {
+    padding: 10px 5px 20px 5px;
+    border-bottom: 1px solid #282828; /* Una linea sottile per separare dai progetti */
+    margin-bottom: 15px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-tag {
+    background: #282828;
+    color: var(--text-sub);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: default;
+}
+
+/* Effetto Hover stile Spotify */
+.skill-tag:hover {
+    background: #333;
+    color: white;
+}
+
+.listening-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-sub);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 0 0 2px 0; /* Minimal space before the title */
+}
+
+/* Ensure the song title is slightly bigger to contrast */
+.song-name {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
