@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +10,83 @@
 <body>
     <div class="spotify-container">
         <aside class="sidebar-left">
-            <div class="nav-icons">
-                <div class="nav-item"><span>🏠</span> Home</div>
-                <div class="nav-item"><span>🔍</span> Cerca</div>
-            </div>
             <div class="library">
-                <div class="lib-header">📚 La tua libreria</div>
-                <div class="project-list">
-                    <div class="project-item" onclick="changeProject('https://link-icefish.com', 'Ice Fish Pianura')">
-                        <img src="assets/icefish-thumb.jpg" alt="Ice Fish">
-                        <div class="proj-info">
-                            <p class="proj-title">Ice Fish</p>
-                            <p class="proj-type">Sito Vetrina</p>
-                        </div>
+                <div class="lib-header">My Library</div>
+                
+                <div class="sidebar-section">
+    <p class="section-label">Main Stack</p>
+    <div class="skills-grid">
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">Three.js</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">HTML5 & CSS3</span>
+    </div>
+</div>
+<div class="sidebar-section">
+    <p class="section-label">Academic & Foundation</p>
+    <div class="skills-grid">
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Object Oriented Programming</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Git</span>
+    </div>
+</div>
+
+<div class="sidebar-section">
+    <p class="section-label">Current Learning</p>
+    <div class="skills-grid">
+        <span class="skill-tag">React.js</span> <span class="skill-tag">SwiftUI</span>
+    </div>
+</div>
+
+                <div class="sidebar-section">
+                    <p class="section-label">Skills</p>
+                    <div class="skills-grid">
+                        <span class="skill-tag">UI Design</span>
+                        <span class="skill-tag">UX Writing</span>
+                        <span class="skill-tag">Frontend Dev</span>
                     </div>
-                    <div class="project-item" onclick="changeProject('https://link-taschino.com', 'Il Taschino Suite')">
-                        <img src="assets/taschino-thumb.jpg" alt="Taschino">
-                        <div class="proj-info">
-                            <p class="proj-title">Il Taschino Suite</p>
-                            <p class="proj-type">Hospitality Solution</p>
+                </div>
+
+                <div class="sidebar-section">
+            <p class="section-label">Soft Skills</p>
+            <div class="skills-grid">
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Team Collaboration</span>
+                <span class="skill-tag">Critical Thinking</span>
+                <span class="skill-tag">Accessibility Mindset</span>
+                <span class="skill-tag">Time Management</span>
+            </div>
+        </div>
+
+                <div class="sidebar-section">
+                    <p class="section-label">Projects</p>
+                    <div class="project-list">
+                        <div class="project-item" onclick="changeProject('cybertris.html', 'CYBERTRIS • Operating Systems Project')">
+    <div class="proj-info">
+        <p class="proj-title">CYBERTRIS</p>
+        <p class="proj-type">C Server • Three.js • Systems</p>
+    </div>
+</div>
+                        <div class="project-item" onclick="changeProject('https://icefish.it', 'Ice Fish Pianura')">
+                            <div class="proj-info">
+                                <p class="proj-title">Ice Fish</p>
+                                <p class="proj-type">Landing Page • Web</p>
+                            </div>
+                        </div>
+                        <div class="project-item" onclick="changeProject('https://iltaschinosuite.it', 'Il Taschino Suite')">
+                            <div class="proj-info">
+                                <p class="proj-title">Il Taschino Suite</p>
+                                <p class="proj-type">Hospitality • Web App</p>
+                            </div>
+                        </div>
+                        <div class="project-item" onclick="changeProject('https://baronespa.it', 'Barone Shipping Company')">
+                            <div class="proj-info">
+                                <p class="proj-title">Barone Shipping Company</p>
+                                <p class="proj-type">Landing Page • Web</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -37,41 +95,79 @@
 
         <main class="main-view">
             <div class="top-bar">
-                <h2 id="current-project-title">Benvenuta nel mio Portfolio</h2>
+                <h2 id="current-project-title">Welcome to my portfolio!</h2>
             </div>
             <div class="content-frame">
                 <iframe id="portfolio-frame" src="about:blank" frameborder="0"></iframe>
-                <div id="placeholder-text">Seleziona un progetto dalla libreria per visualizzarlo</div>
+                <div id="placeholder-text">Select a project from your library to view it</div>
             </div>
         </main>
 
         <aside class="sidebar-right">
-            <div class="profile-card">
-                <img src="piera.jpg" alt="Piera Di Fusco" class="right-profile-pic">
-                <h3>Piera Di Fusco</h3>
-                <p class="artist-sub">Frontend Engineer & UI Designer</p>
-                <div class="bio-box">
-                    <h4>Informazioni sull'artista</h4>
-                    <p>Studentessa di Informatica alla Federico II. Apple Developer Academy Alumnus. "Enjoying music to the fullest."</p>
-                    <button class="follow-btn">Segui</button>
+            <div class="artist-card">
+                <div class="artist-photo-container">
+                    <img src="assets/piera.png" alt="Piera Di Fusco" class="artist-bg-photo">
+                    <div class="artist-overlay-content">
+                        <p class="verified"><span class="check">✔</span> Verified Artist</p>
+                        <h3>Piera Di Fusco</h3>
+                        <p class="listeners">Frontend Engineer & UI Designer</p>
+                    </div>
                 </div>
+                <div class="bio-box">
+    <h4>About</h4>
+    <div class="bio-content">
+        <p>
+            She/Her - Based in Naples, Italy. <strong>CS Student</strong> @ Federico II & <strong>Apple Developer Academy</strong> Alumnus.
+        </p>
+        <p>
+            I build <strong>intuitive frontend experiences</strong> by bridging the gap between clean UI design and technical logic.
+        </p>
+    </div>
+    
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/piera-di-fusco-216a69385" target="_blank" class="social-btn linkedin">LinkedIn</a>
+        <a href="https://www.instagram.com/me.pdf?igsh=MTQzbjNmY2RmcDJmdA==" target="_blank" class="social-btn instagram">Instagram</a>
+        <a href="assets/CV_Piera_Di_Fusco.pdf" target="_blank" class="social-btn cv-btn">View CV</a>
+    </div>
+</div>
             </div>
         </aside>
 
         <footer class="player-bar">
             <div class="now-playing">
-                <img src="assets/song-cover.jpg" alt="Cover" class="album-art">
+                <img src="assets/chances.jpg" id="player-cover" alt="Cover" class="album-art">
                 <div class="song-info">
-                    <p class="song-name">Chances</p>
-                    <p class="artist-name">thuy, DCMBR</p>
+                    <p class="listening-label">Currently listening to</p>
+                    <p class="song-name" id="player-title">chances</p>
+                    <p class="artist-name" id="player-artist">thuy, DCMBR</p>
                 </div>
             </div>
+
             <div class="player-controls">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6X6p63e3Ea2mD1J6H97S0v?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="control-buttons">
+                    <button class="control-btn" disabled>⏮</button>
+                    <button class="play-btn" id="play-pause-btn" onclick="togglePlay()">▶</button>
+                    <button class="control-btn" disabled>⏭</button>
+                </div>
+                <div class="progress-container">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar" id="progress-clickable">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="track-duration">0:00</span>
+                </div>
             </div>
-            <div class="volume-controls">
-                <span>🔊</span>
-                <div class="vol-bar"></div>
+
+            <div class="mono-player-controls">
+                <div class="mono-status-text" id="mono-text">
+                    <span>listening to 100/100 music</span>
+                    <span>with 50/100 capacity</span>
+                </div>
+                <div class="mono-slider-group">
+                    <span class="mono-label">L</span>
+                    <input type="range" id="mono-slider" min="0" max="100" value="100" class="spotify-slider">
+                    <span class="mono-label">R</span>
+                </div>
             </div>
         </footer>
     </div>
@@ -83,6 +179,83 @@
             document.getElementById('placeholder-text').style.display = 'none';
             document.getElementById('portfolio-frame').style.display = 'block';
         }
+
+        // Single track configuration
+        const track = { 
+            title: "chances", 
+            artist: "thuy, DCMBR", 
+            cover: "assets/chances.jpg", 
+            source: "assets/chances.mp3" 
+        };
+
+        let isPlaying = false;
+        let audio = new Audio(track.source);
+
+        const playBtn = document.getElementById('play-pause-btn');
+        const progressFill = document.getElementById('progress-fill');
+        const progressBar = document.getElementById('progress-clickable');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('track-duration');
+        const monoSlider = document.getElementById('mono-slider');
+        const monoText = document.getElementById('mono-text');
+
+        function setupAudioListeners() {
+            audio.addEventListener('timeupdate', () => {
+                if (audio.duration) {
+                    const percent = (audio.currentTime / audio.duration) * 100;
+                    progressFill.style.width = percent + "%";
+                    currentTimeEl.innerText = formatTime(audio.currentTime);
+                }
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.innerText = formatTime(audio.duration);
+            });
+        }
+
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.innerText = "▶";
+                playBtn.style.paddingLeft = "2px"; 
+            } else {
+                audio.play();
+                playBtn.innerText = "⏸";
+                playBtn.style.paddingLeft = "0px";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        progressBar.addEventListener('click', (e) => {
+            const width = progressBar.clientWidth;
+            const clickX = e.offsetX;
+            if (audio.duration) {
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
+        });
+
+        function formatTime(time) {
+            const min = Math.floor(time / 60);
+            const sec = Math.floor(time % 60);
+            return `${min}:${sec < 10 ? '0' + sec : sec}`;
+        }
+
+        monoSlider.addEventListener('input', function() {
+            const val = this.value;
+            audio.volume = val / 100; 
+
+            if (val > 70) {
+                monoText.innerHTML = `<span>listening to 100/100 music</span><span>with 50/100 capacity</span>`;
+                monoText.style.color = "var(--spotify-green)";
+            } else if (val <= 70 && val > 20) {
+                monoText.innerHTML = `<span>fading to mono...</span><span>losing balance</span>`;
+                monoText.style.color = "#e2e2e2";
+            } else {
+                monoText.innerHTML = `<span>oh no,</span><span>i can't hear anything</span>`;
+                monoText.style.color = "#ff4444";
+            }
+        });
+
+        setupAudioListeners();
     </script>
 </body>
 </html>
